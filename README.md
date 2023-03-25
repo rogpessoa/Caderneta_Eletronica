@@ -8,7 +8,7 @@ Para instalação e uso do projeto é necessário instalação do framework Djan
 ### **Utilização** <h3>
 A utilização do projeto será através de página Web através de login individual
 ### **Projeto em Execução** <h3>
-#####$ Home <h5>
+##### Home <h5>
 ![Tela Inicial](./TelaInicial.jpg)
 ##### Cadastro de Professores<h5>
 ![CadastroProfessor](./CadastroProfessor.jpg)
