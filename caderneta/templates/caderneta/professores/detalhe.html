@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Busca Professor</title>
+</head>
+<body>
+    {% if professor %}
+
+      <h1>Detalhes do Professor selecionado: {{professor.nome}}</h1>
+      <ul>
+        <li>Nome: {{professor.nome}}</li>
+        <li>Sobrenome: {{professor.sobrenome}}</li>
+        <li>Disciplina: {{professor.disciplina}}</li>
+        <li>Matricula Professor: {{professor.matricula_professor}}</li>
+        <li>Email Professor: {{professor.email_professor}}</li>
+
+     </ul>
+    {% else %}
+        <h1>Professor nao encontrado</h1>
+    {% endif %}
+
+
+</body>
+</html>

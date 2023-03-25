@@ -1,0 +1,8 @@
+venv/
+db.sqlite3
+dicas
+dicas
+dicas_camada_model
+dicas_camada_view
+.idea
+__pycache__

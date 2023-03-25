@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exlusão de Professores</title>
+</head>
+<body>
+
+    <h1>Exlusão de Professor do sistema</h1>
+    <h2>Professor escolhido: {{professor.nome}}</h2>
+    <form method="post">
+        {% csrf_token %}
+
+        {{ form }}
+        <button type="submit">Excluir</button>
+    </form>
+
+
+</body>
+</html>

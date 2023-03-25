@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Relação de Alunos</title>
+</head>
+    <h1>Lista de Alunos - Caderneta Virtual</h1>
+    <table>
+      <thead>
+        <tr>
+
+          <th>Nome</th>
+          <th>Sobrenome</th>
+          <th>Matricula Aluno</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for aluno in alunos %}
+          <tr>
+            <td>{{aluno.nome}}</td>
+            <td>{{aluno.sobrenome}}</td>
+            <td>{{aluno.matricula_aluno}}</td>
+            <td>
+                <a href="{% url 'caderneta:atualiza_aluno' pk=aluno.matricula_aluno%}">Atualizar</a>
+                <a href="{% url 'caderneta:deleta_aluno' pk=aluno.matricula_aluno%}">Deletar</a>
+            </td>
+
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Novos Professores</title>
+</head>
+<body>
+  <h1>Digite os Dados para Cadastrar</h1>
+
+  <form method="post">
+    {% csrf_token %}
+
+    {{ form }}
+    <button type="submit">Cadastrar</button>
+
+  </form>
+
+</body>
+</html>
