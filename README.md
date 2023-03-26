@@ -9,9 +9,9 @@ Para instalação e uso do projeto é necessário instalação do framework Djan
 A utilização do projeto será através de página Web por meio de login individual.
 ### **Projeto em Execução** <h3>
 ##### Home <h5>
-![Tela Inicial](./TelaInicial.jpg)
+![Tela Inicial](Imagem_projeto/TelaInicial.jpg)
 ##### Cadastro de Professores<h5>
-![CadastroProfessor](./CadastroProfessor.jpg)
+![CadastroProfessor](Imagem_projeto/CadastroProfessor.jpg)
 ##### Cadastro de Alunos<h5>
-![CadastroAlunos](./CadastroAluno.jpg)
+![CadastroAlunos](Imagem_projeto/CadastroAluno.jpg)
 
