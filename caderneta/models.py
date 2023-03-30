@@ -22,8 +22,6 @@ class Alunos(models.Model):
     nome = models.CharField(max_length=30, null=False, blank=False)
     sobrenome = models.CharField(max_length=50, null=False, blank=False)
     matricula_aluno = models.IntegerField(primary_key=True, null=False, blank=False)
-    #turmas = models.ForeignKey('turmas', on_delete=models.CASCADE)
-
 
     class Meta:
         db_table = 'db_alunos'
@@ -46,5 +44,3 @@ class Notas(models.Model):
 
 class Turmas(models.Model):
     turma = models.CharField(max_length=10, blank=False, null=False)
-
-
