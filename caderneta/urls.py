@@ -1,8 +1,8 @@
 from django.urls import path
 
-from caderneta.views import cadastra_professor, atualiza_professor, detalhe_professor, lista_funcionario, \
+from caderneta.views import cadastra_professor, atualiza_professor, detalhe_professor, lista_professor, \
     exclui_professor, HomeView, AlunosCreateView, AlunosListView, AlunosUpdateView, AlunosDeleteView, NotasCreateview, \
-    NotasUpdateView, TurmaCreateview, NotasListView, NotasDeleteview
+    NotasUpdateView, TurmaCreateview, NotasListView, NotasDeleteview, TurmaListView
 
 app_name = 'caderneta'
 urlpatterns = [
@@ -12,7 +12,7 @@ urlpatterns = [
     path('professores/novo', cadastra_professor, name='cadastra_professor'),
     path('professores/atualiza/<pk>', atualiza_professor, name='atualiza_professor'),
     path('professores/detalhe/<pk>', detalhe_professor, name='detalhe_professor'),
-    path('professores/lista', lista_funcionario, name='lista_professor'),
+    path('professores/lista', lista_professor, name='lista_professor'),
     path('professores/deleta/<pk>', exclui_professor, name='exclui_professor'),
 
     # Alunos
@@ -29,6 +29,7 @@ urlpatterns = [
 
     # Turmas
     path('turmas/novo', TurmaCreateview.as_view(), name='cria_turma'),
+    path('turmas/lista', TurmaListView.as_view(), name='lista_turma'),
 
 
 

@@ -24,6 +24,7 @@ class AlunosForm(forms.ModelForm):
 
         }
 
+
 class NotasForm(forms.ModelForm):
     class Meta:
         model = Notas
@@ -34,5 +35,3 @@ class TurmasForm(forms.ModelForm):
     class Meta:
         model = Turmas
         fields = '__all__'
-
-

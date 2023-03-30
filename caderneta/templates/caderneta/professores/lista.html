@@ -13,6 +13,7 @@
                 <th>SOBRENOME</th>
                 <th>DISCIPLINA</th>
                 <th>MATRICULA PROFESSOR</th>
+                <th>AÇÕES</th>
             </tr>
         </thead>
 
@@ -25,7 +26,7 @@
                     <td>{{professor.matricula_professor}}</td>
                     <td>
                         <a href="{% url 'caderneta:atualiza_professor' pk=professor.matricula_professor%}">Atualizar</a>
-
+                        <a href="{% url 'caderneta:exclui_professor' pk=professor.matricula_professor%}">Deletar</a>
                     </td>
                 </tr>
             {% endfor %}

@@ -59,7 +59,7 @@ def detalhe_professor(requisicao: HttpRequest, pk: int):
         )
 
 
-def lista_funcionario(requisicao: HttpRequest):
+def lista_professor(requisicao: HttpRequest):
     if requisicao.method == 'GET':
         professores = Professores.objects.all()
         return render(
@@ -92,7 +92,7 @@ class AlunosCreateView(CreateView):
     template_name = 'caderneta/alunos/novo.html'
     model = Alunos
     form_class = AlunosForm
-    success_url = reverse_lazy('caderneta:home')
+    success_url = reverse_lazy('caderneta:cadastra_aluno')
     success_msg = 'Aluno Criado com sucesso...'
 
 
@@ -135,7 +135,7 @@ class NotasDeleteview(DeleteView):
     context_object_name = 'nota'
 
 
-class NotasUpdateView(UpdateView): #refazer
+class NotasUpdateView(UpdateView):
     model = Notas
     template_name = 'caderneta/notas/atualiza.html'
     form_class = NotasForm
@@ -153,3 +153,10 @@ class TurmaCreateview(CreateView):
     template_name = 'caderneta/turmas/novo.html'
     form_class = TurmasForm
     success_url = reverse_lazy('caderneta:home')
+
+
+class TurmaListView(ListView):
+    model = Turmas
+    template_name = 'caderneta/turmas/lista.html'
+    context_object_name = 'turmas'
+
