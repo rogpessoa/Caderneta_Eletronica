@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exclusão de Notas - Caderneta Eletronica</title>
+</head>
+<body>
+    {% if nota %}
+        <h1>Página para Exclusão de Notas"</h1>
+          <form method="post">
+              {% csrf_token %}
+              <p>Você confirma a exclusão da nota "{{nota.nota}} - Aluno: {{nota.alunos.nome}}"</p>
+              <p>Professor {{nota.professores.nome}} - Disciplina: {{nota.professores.disciplina}}</p>
+
+              <button type="submit">Confirma Exclusão</button>
+          </form>
+    {% else %}
+        <h1>Não existe alunos com esse ID!</h1>
+    {% endif %}
+
+
+
+
+</body>
+</html>

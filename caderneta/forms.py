@@ -1,6 +1,6 @@
 from django import forms
 
-from caderneta.models import Professores, Alunos, Notas
+from caderneta.models import Professores, Alunos, Notas, Turmas
 
 
 class ProfessoresForm(forms.ModelForm):
@@ -29,5 +29,10 @@ class NotasForm(forms.ModelForm):
         model = Notas
         fields = '__all__'
 
+
+class TurmasForm(forms.ModelForm):
+    class Meta:
+        model = Turmas
+        fields = '__all__'
 
 

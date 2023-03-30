@@ -1,10 +1,10 @@
-from django.http import HttpRequest, HttpResponseRedirect
+from django.http import HttpRequest, HttpResponseRedirect, Http404
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, CreateView, ListView, UpdateView, DeleteView
 
-from caderneta.forms import ProfessoresForm, AlunosForm, NotasForm
-from caderneta.models import Professores, Alunos, Notas
+from caderneta.forms import ProfessoresForm, AlunosForm, NotasForm, TurmasForm
+from caderneta.models import Professores, Alunos, Notas, Turmas
 
 
 class HomeView(TemplateView):
@@ -126,4 +126,30 @@ class NotasCreateview(CreateView):
     model = Notas
     template_name = 'caderneta/notas/novo.html'
     form_class = NotasForm
+    success_url = reverse_lazy('caderneta:cadastra_nota')
+
+
+class NotasDeleteview(DeleteView):
+    model = Notas
+    template_name = 'caderneta/notas/deleta.html'
+    context_object_name = 'nota'
+
+
+class NotasUpdateView(UpdateView): #refazer
+    model = Notas
+    template_name = 'caderneta/notas/atualiza.html'
+    form_class = NotasForm
+    success_url = reverse_lazy('caderneta:home')
+
+
+class NotasListView(ListView):
+    model = Notas
+    template_name = 'caderneta/notas/lista.html'
+    context_object_name = 'notas'
+
+
+class TurmaCreateview(CreateView):
+    model = Turmas
+    template_name = 'caderneta/turmas/novo.html'
+    form_class = TurmasForm
     success_url = reverse_lazy('caderneta:home')

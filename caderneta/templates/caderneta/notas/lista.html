@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Relação de Notas</title>
+</head>
+<body>
+    <h1>Relação de Notas</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOTA</th>
+                <th>NOME ALUNO</th>
+                <th>PROFESSOR</th>
+                <th>DISCIPLINA</th>
+                <th>MATRICULA ALUNO</th>
+                <th>AÇÕES</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for nota in notas %}
+                <tr>
+                    <td>{{nota.id}}</td>
+                    <td>{{nota.nota}}</td>
+                    <td>{{nota.alunos.nome}} {{nota.alunos.sobrenome}}</td>
+                    <td>{{nota.professores.nome}} {{nota.professores.sobrenome}}</td>
+                    <td>{{nota.professores.disciplina}}</td>
+                    <td>{{nota.alunos.matricula_aluno}}</td>
+                    <td>
+                        <a href="{% url 'caderneta:atualiza_nota' pk=nota.id%}">Atualizar</a>
+                        <a href="{% url 'caderneta:deleta_nota' pk=nota.id%}">Deletar</a>
+                    </td>
+
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
