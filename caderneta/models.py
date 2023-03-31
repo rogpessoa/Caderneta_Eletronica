@@ -39,6 +39,12 @@ class Notas(models.Model):
         blank=False
     )
 
+    unidade = models.CharField(
+        max_length=15,
+        null=False,
+        blank=False
+    )
+
     professores = models.ForeignKey('professores', on_delete=models.CASCADE)
     alunos = models.ForeignKey('alunos', on_delete=models.CASCADE)
 
@@ -48,3 +54,5 @@ class Turmas(models.Model):
 
     def __str__(self):
         return f'Turma: {self.turma}'
+
+

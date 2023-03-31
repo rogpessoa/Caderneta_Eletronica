@@ -146,7 +146,7 @@ class NotasListView(ListView):
     model = Notas
     template_name = 'caderneta/notas/lista.html'
     context_object_name = 'notas'
-
+    success_url = reverse_lazy('caderneta:lista_notas')
 
 class TurmaCreateview(CreateView):
     model = Turmas

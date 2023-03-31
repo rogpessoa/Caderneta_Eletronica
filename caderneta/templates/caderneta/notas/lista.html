@@ -15,6 +15,7 @@
                 <th>PROFESSOR</th>
                 <th>DISCIPLINA</th>
                 <th>MATRICULA ALUNO</th>
+                <th>UNIDADE</th>
                 <th>AÇÕES</th>
             </tr>
         </thead>
@@ -28,6 +29,7 @@
                     <td>{{nota.professores.nome}} {{nota.professores.sobrenome}}</td>
                     <td>{{nota.professores.disciplina}}</td>
                     <td>{{nota.alunos.matricula_aluno}}</td>
+                    <td>{{nota.unidade}}</td>
                     <td>
                         <a href="{% url 'caderneta:atualiza_nota' pk=nota.id%}">Atualizar</a>
                         <a href="{% url 'caderneta:deleta_nota' pk=nota.id%}">Deletar</a>
