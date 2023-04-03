@@ -13,7 +13,7 @@ class Professores(models.Model):
     disciplinas = models.ForeignKey('disciplinas', on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'Professor: {self.nome} {self.sobrenome}'
+        return f'Professor: {self.nome} {self.sobrenome} - {self.disciplinas}'
 
     class Meta:
         db_table = 'db_professores'
