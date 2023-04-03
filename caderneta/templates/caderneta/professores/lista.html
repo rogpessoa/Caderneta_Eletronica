@@ -22,7 +22,7 @@
                 <tr>
                     <td>{{professor.nome}}</td>
                     <td>{{professor.sobrenome}}</td>
-                    <td>{{professor.disciplina}}</td>
+                    <td>{{professor.turmas.disciplina}}</td>
                     <td>{{professor.matricula_professor}}</td>
                     <td>
                         <a href="{% url 'caderneta:atualiza_professor' pk=professor.matricula_professor%}">Atualizar</a>

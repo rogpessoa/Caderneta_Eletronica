@@ -1,10 +1,12 @@
+from django.utils import timezone
+
 from django.http import HttpRequest, HttpResponseRedirect, Http404
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, CreateView, ListView, UpdateView, DeleteView
 
-from caderneta.forms import ProfessoresForm, AlunosForm, NotasForm, TurmasForm
-from caderneta.models import Professores, Alunos, Notas, Turmas
+from caderneta.forms import ProfessoresForm, AlunosForm, NotasForm, TurmasForm, DisciplinasForm
+from caderneta.models import Professores, Alunos, Notas, Turmas, Disciplinas
 
 
 class HomeView(TemplateView):
@@ -30,8 +32,8 @@ def cadastra_professor(requisicao: HttpRequest):
 
 def atualiza_professor(requisicao: HttpRequest, pk: int):
     if requisicao.method == 'GET':
-        professor = Professores.objects.get(pk=pk)#Pega os dados contidos na pk e passa para variavel professor
-        form = ProfessoresForm(instance=professor)#Pega os dados de professor e atualiza dentro do formulario
+        professor = Professores.objects.get(pk=pk)  # Pega os dados contidos na pk e passa para variavel professor
+        form = ProfessoresForm(instance=professor)  # Pega os dados de professor e atualiza dentro do formulario
         return render(
             requisicao,
             template_name='caderneta/professores/atualiza.html',
@@ -40,7 +42,7 @@ def atualiza_professor(requisicao: HttpRequest, pk: int):
 
     elif requisicao.method == 'POST':
         professor = Professores.objects.get(pk=pk)
-        form = ProfessoresForm(requisicao.POST, instance=professor)#Vai pegar os dados da get e atualizar
+        form = ProfessoresForm(requisicao.POST, instance=professor)  # Vai pegar os dados da get e atualizar
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(redirect_to=f'/')
@@ -133,6 +135,7 @@ class NotasDeleteview(DeleteView):
     model = Notas
     template_name = 'caderneta/notas/deleta.html'
     context_object_name = 'nota'
+    success_url = reverse_lazy('caderneta:home')
 
 
 class NotasUpdateView(UpdateView):
@@ -148,6 +151,7 @@ class NotasListView(ListView):
     context_object_name = 'notas'
     success_url = reverse_lazy('caderneta:lista_notas')
 
+
 class TurmaCreateview(CreateView):
     model = Turmas
     template_name = 'caderneta/turmas/novo.html'
@@ -160,3 +164,16 @@ class TurmaListView(ListView):
     template_name = 'caderneta/turmas/lista.html'
     context_object_name = 'turmas'
 
+
+class TurmaDeleteView(DeleteView):
+    model = Turmas
+    template_name = 'caderneta/turmas/deleta.html'
+    context_object_name = 'turma'
+    success_url = reverse_lazy('caderneta:lista_turma')
+
+
+class DisciplinasCreateView(CreateView):
+    model = Disciplinas
+    template_name = 'caderneta/turmas/nova_disciplina.html'
+    form_class = DisciplinasForm
+    success_url = reverse_lazy('caderneta:lista_professor')
