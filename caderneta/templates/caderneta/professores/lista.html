@@ -5,6 +5,8 @@
     <title>Relação de Professores</title>
 </head>
 <body>
+    <ul>
+    {% if professores %}
     <h1>Relação de Professores do Sistema</h1>
     <table>
         <thead>
@@ -22,7 +24,7 @@
                 <tr>
                     <td>{{professor.nome}}</td>
                     <td>{{professor.sobrenome}}</td>
-                    <td>{{professor.turmas.disciplina}}</td>
+                    <td>{{professor.disciplinas}}</td>
                     <td>{{professor.matricula_professor}}</td>
                     <td>
                         <a href="{% url 'caderneta:atualiza_professor' pk=professor.matricula_professor%}">Atualizar</a>
@@ -30,6 +32,11 @@
                     </td>
                 </tr>
             {% endfor %}
+        {% else %}
+            <li><b>Desculpe, não temos professores cadastrados!</b></li>
+            <a href="{% url 'caderneta:cadastra_professor'%}">Clique aqui para cadastrar novo professor</a>
+        {% endif %}
+        </ul>
         </tbody>
     </table>
 

@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <title>Relação de Alunos</title>
 </head>
+     <ul>
+     {% if alunos %}
     <h1>Lista de Alunos - Caderneta Virtual</h1>
 
     <table>
-      <thead>
+
         <tr>
           <th>Nome</th>
           <th>Sobrenome</th>
@@ -30,6 +32,11 @@
 
           </tr>
         {% endfor %}
+      {% else %}
+        <li><b>Desculpe, não temos alunos cadastrados!</b></li>
+        <a href="{% url 'caderneta:cadastra_aluno' %}">Clique aqui para Cadastrar novo Aluno</a>
+      {% endif %}
+      </ul>
       </tbody>
     </table>
 <body>

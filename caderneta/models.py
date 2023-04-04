@@ -34,7 +34,7 @@ class Alunos(models.Model):
 
 class Notas(models.Model):
     nota = models.DecimalField(
-        max_digits=2,
+        max_digits=3,
         decimal_places=1,
         null=False,
         blank=False
@@ -61,4 +61,4 @@ class Disciplinas(models.Model):
     disciplina = models.CharField(max_length=25, null=False, blank=False)
 
     def __str__(self):
-        return f'Disciplina: {self.disciplina}'
+        return f'{self.disciplina}'

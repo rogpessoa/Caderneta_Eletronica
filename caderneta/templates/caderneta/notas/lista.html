@@ -5,9 +5,12 @@
     <title>Relação de Notas</title>
 </head>
 <body>
+    <ul>
+    {% if notas %}
     <h1>Relação de Notas</h1>
     <table>
         <thead>
+
             <tr>
 
                 <th>NOTA</th>
@@ -27,7 +30,7 @@
                     <td>{{nota.nota}}</td>
                     <td>{{nota.alunos.nome}} {{nota.alunos.sobrenome}}</td>
                     <td>{{nota.professores.nome}} {{nota.professores.sobrenome}}</td>
-                    <td>{{nota.professores.disciplina}}</td>
+                    <td>{{nota.professores.disciplinas}}</td>
                     <td>{{nota.alunos.matricula_aluno}}</td>
                     <td>{{nota.unidade}}</td>
                     <td>
@@ -38,6 +41,11 @@
 
                 </tr>
             {% endfor %}
+            {% else %}
+                <li><b>Desculpe, não temos cadastro de notas!</b></li>
+                <a href="{% url 'caderneta:cadastra_nota' %}">Clique aqui para cadastrar nova nota</a>
+            {% endif %}
+            </ul>
         </tbody>
     </table>
 
