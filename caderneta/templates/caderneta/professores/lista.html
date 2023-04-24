@@ -22,8 +22,8 @@
         <tbody>
             {% for professor in professores %}
                 <tr>
-                    <td>{{professor.nome}}</td>
-                    <td>{{professor.sobrenome}}</td>
+                    <td>{{professor.nome | title}}</td>
+                    <td>{{professor.sobrenome | title}}</td>
                     <td>{{professor.disciplinas}}</td>
                     <td>{{professor.matricula_professor}}</td>
                     <td>

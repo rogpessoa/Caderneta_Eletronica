@@ -1,7 +1,5 @@
 from django.db import models
-
-
-# professores
+from django.db.models import CASCADE
 
 
 class Professores(models.Model):
@@ -52,6 +50,8 @@ class Notas(models.Model):
 
 class Turmas(models.Model):
     turma = models.CharField(max_length=10, blank=False, null=False)
+    #alunos = models.ForeignKey('alunos', on_delete=CASCADE)
+    #professores = models.ForeignKey('professores', on_delete=CASCADE)
 
     def __str__(self):
         return f'Turma: {self.turma}'

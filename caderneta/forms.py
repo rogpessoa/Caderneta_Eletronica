@@ -18,11 +18,11 @@ class AlunosForm(forms.ModelForm):
 
         }
 
+
 class NotasForm(forms.ModelForm):
     class Meta:
         model = Notas
         fields = '__all__'
-
 
 
 class TurmasForm(forms.ModelForm):
