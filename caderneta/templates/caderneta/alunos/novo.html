@@ -1,19 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Cadastro de Alunos</title>
-</head>
+<title>Cadastro de Alunos</title>
+{%extends 'base.html'%}
+{% load bootstrap %}
+{%block conteudo%}
 <body>
-    <h1>Página para Cadastro de Alunos</h1>
-    <form method="post">
-      {% csrf_token %}
-
-
-      {{ form }}
-
-      <button type="submit">Cadastrar Aluno</button>
-    </form>
-
-</body>
-</html>
+  {% comment %} <h1>Adicionar Alunos</h1> {% endcomment %}
+  <div class="container">
+      <h1>Adicionar um Aluno</h1> 
+  </div>
+    <div class="container">
+        <form action="" method="POST">
+            {% csrf_token %}
+              {{ form|bootstrap }}
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+        
+    </div>
+  </div>
+</body>  
+{% endblock %}

@@ -1,19 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Cadastro de novos Professores</title>
-</head>
+<title>Cadastro de Professores</title>
+{%extends 'base.html'%}
+{% load bootstrap %}
+{%block conteudo%}
 <body>
-  <h1>Digite os Dados para Cadastrar</h1>
-
-  <form method="post">
-    {% csrf_token %}
-
-    {{ form }}
-    <button type="submit">Cadastrar</button>
-
-  </form>
-
-</body>
-</html>
+  <div class="container">
+      <h1>Cadastro de Professores</h1> 
+  </div>
+    <div class="container">
+        <form action="" method="POST">
+            {% csrf_token %}
+              {{ form|bootstrap }}
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+        
+    </div>
+  </div>
+</body>  
+{% endblock %}
