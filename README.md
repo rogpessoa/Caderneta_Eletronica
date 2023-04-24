@@ -14,4 +14,5 @@ A utilização do projeto será através de página Web por meio de login indivi
 ![CadastroProfessor](Imagem_projeto/CadastroProfessor.jpg)
 ##### Cadastro de Alunos<h5>
 ![CadastroAlunos](Imagem_projeto/CadastroAluno.jpg)
-
+##### Lista de Alunos Cadastrados <h5>
+![CadastroAlunos](Imagem_projeto/ListaAlunos.jpg)

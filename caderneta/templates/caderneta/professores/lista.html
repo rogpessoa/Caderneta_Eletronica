@@ -1,20 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Relação de Professores</title>
+<title>Relação de Professores</title>
+{%extends 'base.html'%}
 </head>
 <body>
     <ul>
+    {%block conteudo%}
     {% if professores %}
-    <h1>Relação de Professores do Sistema</h1>
-    <table>
+    <h1 align='center'>Relação de Professores do Sistema</h1>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>NOME</th>
                 <th>SOBRENOME</th>
                 <th>DISCIPLINA</th>
-                <th>MATRICULA PROFESSOR</th>
+                <th>MATRICULA</th>
                 <th>AÇÕES</th>
             </tr>
         </thead>
@@ -41,4 +39,4 @@
     </table>
 
 </body>
-</html>
+{%endblock%}

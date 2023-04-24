@@ -6,7 +6,7 @@ class Professores(models.Model):
     nome = models.CharField(max_length=40, null=False, blank=False)
     sobrenome = models.CharField(max_length=60, null=False, blank=False)
     matricula_professor = models.IntegerField(primary_key=True, null=False, blank=False)
-    email_professor = models.EmailField(null=False, blank=False, max_length=50)
+    email_professor = models.EmailField(max_length=50, blank=True)
     turmas = models.ForeignKey('turmas', on_delete=models.CASCADE)
     disciplinas = models.ForeignKey('disciplinas', on_delete=models.CASCADE)
 

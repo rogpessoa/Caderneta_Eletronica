@@ -7,14 +7,14 @@
      {% if alunos %}
     
 
-    <table>
+    <table class="table table-striped">
 
         <tr>
-          <th>Nome</th>
-          <th>Sobrenome</th>
-          <th>Matricula Aluno</th>
-          <th>SERIE</th>
-          <th>Ações</th>
+          <th>NOME</th>
+          <th>SOBRENOME</th>
+          <th>MATRICULA</th>
+          <th>SÉRIE</th>
+          <th>AÇÕES</th>
         </tr>
       </thead>
       <tbody>
@@ -24,7 +24,7 @@
             <td>{{aluno.sobrenome}}</td>
             <td>{{aluno.matricula_aluno}}</td>
             <td>{{aluno.turmas.turma}}</td>
-            <td>
+            <td> 
                 <a href="{% url 'caderneta:atualiza_aluno' pk=aluno.matricula_aluno%}">Atualizar</a>
                 <a href="{% url 'caderneta:deleta_aluno' pk=aluno.matricula_aluno%}">Deletar</a>
             </td>
