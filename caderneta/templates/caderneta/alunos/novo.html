@@ -1,16 +1,15 @@
 <title>Cadastro de Alunos</title>
 {%extends 'base.html'%}
-{% load bootstrap %}
-{%block conteudo%}
+{%block content%}
 <body>
   {% comment %} <h1>Adicionar Alunos</h1> {% endcomment %}
-  <div class="container">
-      <h1>Adicionar um Aluno</h1> 
+  <div class="responsive-table">
+      <h1 align="center">Cadastro de Alunos</h1> <br><br>
   </div>
     <div class="container">
         <form action="" method="POST">
             {% csrf_token %}
-              {{ form|bootstrap }}
+              {{ form}}
             <button type="submit" class="btn btn-primary">Cadastrar</button>
         </form>
         

@@ -6,3 +6,5 @@ dicas_camada_model
 dicas_camada_view
 .idea
 __pycache__
+utils/
+REVISAR/

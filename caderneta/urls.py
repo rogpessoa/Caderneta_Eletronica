@@ -14,7 +14,7 @@ urlpatterns = [
     path('professores/atualiza/<pk>', atualiza_professor, name='atualiza_professor'),
     path('professores/detalhe/<pk>', detalhe_professor, name='detalhe_professor'),
     path('professores/lista', lista_professor, name='lista_professor'),
-    path('professores/deleta/<pk>', exclui_professor, name='exclui_professor'),
+    path('professores/deleta/<pk>', exclui_professor, name='deleta_professor'),
 
     # Alunos
     path('alunos/novo', AlunosCreateView.as_view(), name='cadastra_aluno'),

@@ -1,24 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
+<title>Exclusão de Alunos</title>
+{% extends 'base.html' %}
+{% block content %}
 <head>
     <meta charset="UTF-8">
     <title>Exclusão de Alunos - Caderneta Eletronica</title>
 </head>
 <body>
     {% if aluno %}
-        <h1>Página para Exclusão de Alunos "{{ aluno.nome }}"</h1>
+        <h1>Você deseja excluir o aluno(a): {{ aluno.nome }} {{aluno.sobrenome}}</h1>
           <form method="post">
               {% csrf_token %}
-              <p>Você confirma a exclusão do aluno "{{aluno.nome}}"</p>
+              <p>Você confirma a exclusão do aluno(a): {{aluno.nome}} {{aluno.sobrenome}}</p>
 
               <button type="submit">Confirma Exclusão</button>
           </form>
     {% else %}
-        <h1>Não existe alunos com esse ID!</h1>
+        <h1>Não existem alunos com esse ID!</h1>
+        <a class="table-link" href="{% url 'caderneta:lista_aluno'%}">Voltar</a>
+
     {% endif %}
 
 
-
+{% endblock content %}
 
 </body>
 </html>

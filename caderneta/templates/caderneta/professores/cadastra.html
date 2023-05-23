@@ -1,15 +1,14 @@
 <title>Cadastro de Professores</title>
 {%extends 'base.html'%}
-{% load bootstrap %}
-{%block conteudo%}
+{%block content%}
 <body>
-  <div class="container">
-      <h1>Cadastro de Professores</h1> 
+  <div class="responsive-table">
+      <h1 align="center">Cadastro de Professores</h1> <br><br>
   </div>
     <div class="container">
         <form action="" method="POST">
             {% csrf_token %}
-              {{ form|bootstrap }}
+              {{ form }}<br>
             <button type="submit" class="btn btn-primary">Cadastrar</button>
         </form>
         

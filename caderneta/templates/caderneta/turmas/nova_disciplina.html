@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Cadastro de Disciplinas</title>
+<title>Cadastro de Disciplinas</title>
+{% extends 'base.html' %}
+{% block content %}
 </head>
 <body>
-    <h1>Página para Cadastro de Disciplinas</h1>
+    <h1 align="center">Cadastrar Disciplina</h1> <br>
     <form method="post">
       {% csrf_token %}
 
@@ -16,4 +14,4 @@
     </form>
 
 </body>
-</html>
+{% endblock content %}

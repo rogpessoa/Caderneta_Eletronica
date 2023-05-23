@@ -1,42 +1,76 @@
-<title>Relação de Professores</title>
-{%extends 'base.html'%}
-</head>
-<body>
-    <ul>
-    {%block conteudo%}
-    {% if professores %}
-    <h1 align='center'>Relação de Professores do Sistema</h1>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>NOME</th>
-                <th>SOBRENOME</th>
-                <th>DISCIPLINA</th>
-                <th>MATRICULA</th>
-                <th>AÇÕES</th>
-            </tr>
-        </thead>
+{% extends 'base.html' %}
 
-        <tbody>
-            {% for professor in professores %}
-                <tr>
-                    <td>{{professor.nome | title}}</td>
-                    <td>{{professor.sobrenome | title}}</td>
-                    <td>{{professor.disciplinas}}</td>
-                    <td>{{professor.matricula_professor}}</td>
-                    <td>
-                        <a href="{% url 'caderneta:atualiza_professor' pk=professor.matricula_professor%}">Atualizar</a>
-                        <a href="{% url 'caderneta:exclui_professor' pk=professor.matricula_professor%}">Deletar</a>
-                    </td>
+{% block content %}   
+    <div class="responsive-table">
+        <table class="contacts-table">
+            <caption class="table-caption">
+                Relação de Professores
+            </caption>
+            {% if professores %}
+            <thead>
+                <tr class="table-row table-row-header">
+                    <th class="table-header">NOME</th>
+                    <th class="table-header">SOBRENOME</th>
+                    <th class="table-header">DISCIPLINA</th>
+                    <th class="table-header">MATRICULA</th>
+                    <th class="table-header">AÇÕES</th>
+
                 </tr>
-            {% endfor %}
-        {% else %}
-            <li><b>Desculpe, não temos professores cadastrados!</b></li>
-            <a href="{% url 'caderneta:cadastra_professor'%}">Clique aqui para cadastrar novo professor</a>
-        {% endif %}
-        </ul>
-        </tbody>
-    </table>
 
-</body>
-{%endblock%}
+            </thead>
+            <tbody>
+                {% for professor in professores  %}
+                    <tr class="table-row">                       
+                        </td>
+                        <td class="table-cel">
+                            {{professor.nome}}
+
+                        </td>
+                        <td class="table-cel">
+                            {{professor.sobrenome}}
+
+                        </td>
+                        <td class="table-cel">
+                            {{professor.disciplinas}}
+
+                        </td>
+                        <td class="table-cel">
+                            {{professor.matricula_professor}}
+
+                        </td>
+                        <td class="table-cel">
+                          <a class="table-link" href="{% url 'caderneta:atualiza_professor' pk=professor.matricula_professor%}">Atualizar</a>
+                          <a class="table-link" href="{% url 'caderneta:deleta_professor' pk=professor.matricula_professor%}">Deletar</a>
+                              
+                         
+
+                      </tr>
+                
+                
+                {% endfor %}
+            {% else %}
+            <li><b>Desculpe, não temos professores cadastrados!</b></li>
+            <a href="{% url 'caderneta:cadastra_professor'%}">Clique aqui para cadastrar novo professor</a>    
+            {% endif %}            
+            </tbody>
+        </table>
+
+    </div>
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; Primeira</a>
+                <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+            {% endif %}
+    
+            <span class="current">
+                Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+            </span>
+    
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Próximo</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">Ultima &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+{% endblock content %}``

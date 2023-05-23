@@ -1,5 +1,5 @@
 from django.utils import timezone
-
+from django.core.paginator import Paginator
 from django.http import HttpRequest, HttpResponseRedirect, Http404
 from django.shortcuts import render
 from django.urls import reverse_lazy
@@ -64,11 +64,18 @@ def detalhe_professor(requisicao: HttpRequest, pk: int):
 def lista_professor(requisicao: HttpRequest):
     if requisicao.method == 'GET':
         professores = Professores.objects.all()
+        paginator = Paginator(professores, 5)
+        page_number = requisicao.GET.get('page')
+        page_obj = paginator.get_page(page_number)
         return render(
             requisicao,
             template_name='caderneta/professores/lista.html',
-            context={'professores': professores}
+            context={'professores': professores,
+                     'page_obj': page_obj,
+                    }
+            
         )
+    
 
 
 def exclui_professor(requisicao: HttpRequest, pk: int):
@@ -102,6 +109,8 @@ class AlunosListView(ListView):
     model = Alunos
     template_name = 'caderneta/alunos/lista.html'
     context_object_name = 'alunos'
+    paginate_by = 15
+    
 
 
 class AlunosUpdateView(UpdateView):
@@ -156,7 +165,7 @@ class TurmaCreateview(CreateView):
     model = Turmas
     template_name = 'caderneta/turmas/novo.html'
     form_class = TurmasForm
-    success_url = reverse_lazy('caderneta:home')
+    success_url = reverse_lazy('caderneta:cria_turma')
 
 
 class TurmaListView(ListView):

@@ -1,46 +1,76 @@
-<title>Relação de Alunos</title>
 {% extends 'base.html' %}
-{% block conteudo %}
 
-</head>
-     <ul>
-     {% if alunos %}
+{% block content %}   
+    <div class="responsive-table">
+        <table class="contacts-table">
+            <caption class="table-caption">
+                Alunos
+            </caption>
+
+            <thead>
+                <tr class="table-row table-row-header">
+                    <th class="table-header">NOME</th>
+                    <th class="table-header">SOBRENOME</th>
+                    <th class="table-header">MATRICULA</th>
+                    <th class="table-header">SERIE</th>
+                    <th class="table-header">AÇÕES</th>
+
+                </tr>
+
+            </thead>
+            <tbody>
+                {% for aluno in alunos  %}
+                    <tr class="table-row">                       
+                        </td>
+                        <td class="table-cel">
+                            {{aluno.nome}}
+
+                        </td>
+                        <td class="table-cel">
+                            {{aluno.sobrenome}}
+
+                        </td>
+                        <td class="table-cel">
+                            {{aluno.matricula_aluno}}
+
+                        </td>
+                        <td class="table-cel">
+                            {{aluno.turmas.turma}}
+
+                        </td>
+                        <td class="table-cel">
+                          <a class="table-link" href="{% url 'caderneta:atualiza_aluno' pk=aluno.matricula_aluno%}">Atualizar</a>
+                          <a class="table-link" href="{% url 'caderneta:deleta_aluno' pk=aluno.matricula_aluno%}">Deletar</a>
+                              
+                         
+
+                      </tr>
+                
+                
+                {% endfor %}
+            </tbody>
+
+
+
+
+        </table>
+
+    </div>
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; Primeira</a>
+                <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+            {% endif %}
     
-
-    <table class="table table-striped">
-
-        <tr>
-          <th>NOME</th>
-          <th>SOBRENOME</th>
-          <th>MATRICULA</th>
-          <th>SÉRIE</th>
-          <th>AÇÕES</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for aluno in alunos %}
-          <tr>
-            <td>{{aluno.nome}}</td>
-            <td>{{aluno.sobrenome}}</td>
-            <td>{{aluno.matricula_aluno}}</td>
-            <td>{{aluno.turmas.turma}}</td>
-            <td> 
-                <a href="{% url 'caderneta:atualiza_aluno' pk=aluno.matricula_aluno%}">Atualizar</a>
-                <a href="{% url 'caderneta:deleta_aluno' pk=aluno.matricula_aluno%}">Deletar</a>
-            </td>
-
-          </tr>
-        {% endfor %}
-      {% else %}
-        <li><b>Desculpe, não temos alunos cadastrados!</b></li>
-        <a href="{% url 'caderneta:cadastra_aluno' %}">Clique aqui para Cadastrar novo Aluno</a>
-      {% endif %}
-      </ul>
-      </tbody>
-    </table>
-<body>
-
-</body>
-</html>
-
-{% endblock %}
+            <span class="current">
+                Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+            </span>
+    
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Próximo</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">Ultima &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+{% endblock content %}

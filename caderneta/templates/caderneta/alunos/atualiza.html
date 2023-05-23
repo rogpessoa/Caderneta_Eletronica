@@ -1,14 +1,13 @@
 <title>Atualização de Dados dos Alunos</title>
 {%extends 'base.html'%}
-{%load bootstrap%}
-{%block conteudo%}
+{%block content%}
 </head>
 <body>
   <h4>Digite os dados que deseja alterar</h4>
   <form method="post">
     {% csrf_token %}
 
-    {{ form |bootstrap}}
+    {{ form }}
     <button type="submit">Atualizar</button>
   </form>
 

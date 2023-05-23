@@ -1,43 +1,48 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="pt">
-
+{% load static %}<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-  <title>Caderneta do Aluno</title>
-  {% include 'parciais/_head.html' %}
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caderneta Eletrônica Escolar</title>
+    <link rel="stylesheet" href="{% static 'global/css/style.css' %}">
 </head>
-
 <body>
-
-  {% include 'parciais/_nav.html'%}
-  <!-- Page Content -->
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <br>
-        <form method="get" action="#">
-          <div class="form-group row">
-            <div class="col-12">
-<!--              <!– caixa de busca sera usada posteriormente-->
-<!--              <input class="form-control"-->
-<!--                     type="search" value=""-->
-<!--                     id="search-input"-->
-<!--                     placeholder="Digite o nome do aluno"-->
-<!--                     name="termo">-->
-                       
-            </div>
-          </div>
-        </form>
-        {%block conteudo %} {%endblock%}
-      </div>
-    </div>
-  </div>
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="{% static 'vendor/jquery/jquery.slim.min.js' %}"></script>
-  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <header class="header">
+        <h1 class="header-heading">
+            <a href="{% url 'caderneta:home'%}" class="header-link">
+                Caderneta
+            </a>
+        </h1>
+        <nav class="menu">
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <a href="{% url 'caderneta:lista_aluno' %}" class="menu-link">
+                        Alunos
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{% url 'caderneta:lista_professor' %}" class="menu-link">
+                        Professores
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="search">
+            <form action="" method="get">
+                <input
+                type="seach"
+                class="search-input"
+                placeholder="Search"
+                id="search"
+                name="q"
+                >
+            </form>
+        </div>
+    </head>
+    <main class="content">
+        {% block content %}{% endblock content %}
+    </main>
 
 </body>
-
 </html>

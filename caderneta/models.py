@@ -18,9 +18,9 @@ class Professores(models.Model):
 
 
 class Alunos(models.Model):
-    nome = models.CharField(max_length=30, null=False, blank=False)
+    nome = models.CharField(max_length=30, blank=False)
     sobrenome = models.CharField(max_length=50, null=False, blank=False)
-    matricula_aluno = models.IntegerField(primary_key=True, null=False, blank=False)
+    matricula_aluno = models.IntegerField(primary_key=True, blank=False)
     turmas = models.ForeignKey('turmas', on_delete=models.CASCADE)
 
     class Meta:
@@ -58,7 +58,7 @@ class Turmas(models.Model):
 
 
 class Disciplinas(models.Model):
-    disciplina = models.CharField(max_length=25, null=False, blank=False)
+    disciplina = models.CharField(max_length=25, blank=False)
 
     def __str__(self):
         return f'{self.disciplina}'
